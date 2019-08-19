@@ -1,6 +1,6 @@
 # Обновица
 # sudo apt-get update
-# sudo apt-get install python-pip python-dev mysql-server libmysqlclient-dev
+# sudo apt-get install python-pip python-dev mysql-server
 # sudo apt-get install -y python3.5
 # sudo apt-get install -y python3.5-dev
 # sudo unlink /usr/bin/python3
@@ -17,3 +17,7 @@ sudo /etc/init.d/gunicorn restart
 sudo gunicorn -c /etc/gunicorn.d/gunicorn.conf hello:wsgi_application &
 sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf ask.wsgi:application &
 sudo /etc/init.d/mysql start
+mysql -uroot -e "create database stepic_web_project;"
+mysql -uroot -e "grant all privileges on stepic_web_project.* to 'box'@'localhost' with grant option;"
+~/web/ask/manage.py makemigrations
+~/web/ask/manage.py migrate
