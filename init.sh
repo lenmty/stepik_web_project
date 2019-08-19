@@ -18,6 +18,6 @@ sudo gunicorn -c /etc/gunicorn.d/gunicorn.conf hello:wsgi_application &
 sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf ask.wsgi:application &
 sudo /etc/init.d/mysql start
 mysql -uroot -e "create database stepik_web_project;"
-mysql -uroot -e "grant all privileges on stepic_web_project.* to 'box'@'localhost' with grant option;"
+mysql -uroot -e "grant all privileges on stepik_web_project.* to 'box'@'localhost' with grant option;"
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
